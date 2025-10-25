@@ -18,7 +18,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ iconName, title, subtitle, showChev
         <Text style={styles.menuTitle}>{title}</Text>
         {subtitle && <Text style={styles.menuSubtitle}>{subtitle}</Text>}
       </View>
-      {showChevron && (<MaterialCommunityIcons icon="mdi:chevron-right" size={20} color="#C7C7CC" />)}
+      {showChevron && (<MaterialCommunityIcons name="chevron-right" size={20} color="#C7C7CC" />)}
     </TouchableOpacity>
 )
 
@@ -35,7 +35,7 @@ export default function Settings(){
 
       <View style={styles.searchContainer}>
         <View style={styles.searchBar}>
-          <MaterialCommunityIcons icon="mdi:magnify" size={18} color="#8E8E93" />
+          <MaterialCommunityIcons name="magnify" size={18} color="#8E8E93" />
           <TextInput 
             placeholder="Search"
             placeholderTextColor="#8E8E93"
@@ -63,7 +63,7 @@ export default function Settings(){
       <View style={styles.section}>
         <TouchableOpacity style={styles.profileItem}>
           <View style={styles.avatar}>
-            <MaterialCommunityIcons icon="mdi:account" size={32} color="#666" />
+            <MaterialCommunityIcons name="account" size={32} color="#666" />
           </View>
           <View style={styles.profileTextContainer}>
             <Text style={styles.profileName}>Edwin Olaez</Text>

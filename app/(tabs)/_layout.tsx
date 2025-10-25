@@ -20,7 +20,7 @@ export default function TabLayout() {
         options={{
           title: 'Updates',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons icon="mdi:updates" color={color} size={size} />
+            <MaterialCommunityIcons name="update" color={color} size={size} />
           ),
         }}
       />
@@ -29,7 +29,7 @@ export default function TabLayout() {
         options={{
           title: 'Calls',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons icon="mdi:phone-outline" color={color} size={size} />
+            <MaterialCommunityIcons name="phone-outline" color={color} size={size} />
           ),
         }}
       />
@@ -38,7 +38,7 @@ export default function TabLayout() {
         options={{
           title: 'Communities',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons icon="mdi:account-group-outline" color={color} size={size} />
+            <MaterialCommunityIcons name="account-group-outline" color={color} size={size} />
           ),
         }}
       />
@@ -47,7 +47,7 @@ export default function TabLayout() {
         options={{
           title: 'Setting',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons icon="mdi:cog-outline" color={color} size={size} />
+            <MaterialCommunityIcons name="cog-outline" color={color} size={size} />
           ),
         }}
       />

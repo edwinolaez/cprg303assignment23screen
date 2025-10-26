@@ -2,6 +2,13 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+## If can't open project when you clone it from github
+
+run in terminal (remember to change directory to the project it self(cd ....))
+npm install -g expo-cli
+npm install
+
+
 ## Get started
 
 1. Install dependencies

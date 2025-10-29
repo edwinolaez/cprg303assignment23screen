@@ -26,6 +26,9 @@ const calls: Call[] = [
   { name: "Book", type: "Incoming", date: "2025-10-02", image: "../assets/images/profile1.jpg" },
   { name: "+1 (587) 429-4787", sub: "Gavin", type: "Outgoing", date: "2025-09-23", image: "../assets/images/profile2.jpg" },
   { name: "Book", type: "Outgoing", date: "2025-09-17", image: "../assets/images/profile1.jpg" },
+  { name: "Default", type: "Incoming", date: "2025-09-10", image: "../assets/images/default.jpg" },
+  { name: "Default", type: "Missed", date: "2025-08-07", image: "../assets/images/default.jpg" },
+
 ];
 
 const getImage = (name: Call["name"]): number => {
@@ -60,7 +63,12 @@ export default function CallsScreen() {
 
       {/* Search */}
       <View style={styles.searchContainer}>
-        <TextInput placeholder="Search" style={styles.searchInput} />
+        <Ionicons name="search-outline" size={20} color="#666" style={styles.searchIcon} />
+        <TextInput
+          placeholder="Search"
+          placeholderTextColor="#999"
+          style={styles.searchInput}
+        />
       </View>
 
       {/* Favorites */}
@@ -83,19 +91,33 @@ export default function CallsScreen() {
             <View style={styles.callInfo}>
               <Image source={getImage(call.name)} style={styles.profileImage} />
               <View style={styles.callTextContainer}>
-                <Text style={styles.callName}>{call.name}</Text>
-                <Text
-                  style={[
-                    styles.callType,
-                    call.type === "Missed"
-                      ? styles.missedCall
-                      : call.type === "Incoming"
-                      ? styles.incomingCall
-                      : styles.outgoingCall,
-                  ]}
-                >
-                  {call.type} {call.sub ? `(${call.sub})` : ""}
-                </Text>
+                <View>
+                  <Text style={styles.callName}>{call.name}</Text>
+                  {call.sub && <Text style={styles.callName}>~{call.sub}</Text>}
+                </View>
+                <View style={styles.callTypeContainer}>
+                  <Image
+                    source={
+                      call.type === "Outgoing"
+                        ? require("../assets/images/OutgoingIcon.png")
+                        : require("../assets/images/IncomingIcon.png")
+                    }
+                    style={styles.callTypeIcon}
+                  />
+                  <Text
+                    style={[
+                      styles.callType,
+                      call.type === "Missed"
+                        ? styles.missedCall
+                        : call.type === "Incoming"
+                        ? styles.incomingCall
+                        : styles.outgoingCall,
+                    ]}
+                  >
+                    {call.type}
+                  </Text>
+                </View>
+
               </View>
             </View>
 
@@ -130,24 +152,15 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: "700",
   },
-  searchContainer: {
-    paddingHorizontal: 20,
-    marginTop: 15,
-  },
-  searchInput: {
-    backgroundColor: "#f2f2f2",
-    padding: 10,
-    borderRadius: 10,
-    fontSize: 16,
-  },
   favoritesContainer: {
     marginTop: 25,
     paddingHorizontal: 20,
   },
   sectionTitle: {
-    fontWeight: "600",
+    fontWeight: "700",
     fontSize: 16,
     marginBottom: 10,
+
   },
   addFavorite: {
     flexDirection: "row",
@@ -213,4 +226,35 @@ const styles = StyleSheet.create({
     color: "#666",
     marginRight: 6,
   },
+  searchContainer: {
+  flexDirection: "row",
+  alignItems: "center",
+  backgroundColor: "#f2f2f2",
+  borderRadius: 10,
+  marginHorizontal: 20,
+  marginTop: 15,
+  paddingHorizontal: 10,
+  height: 45,
+},
+searchIcon: {
+  marginRight: 8,
+},
+searchInput: {
+  flex: 1,
+  fontSize: 16,
+  color: "#000",
+},
+callTypeContainer: {
+  flexDirection: "row",
+  alignItems: "center",
+  marginTop: 2,
+},
+callTypeIcon: {
+  width: 14,
+  height: 14,
+  marginRight: 4,
+  resizeMode: "contain",
+},
+
+
 });

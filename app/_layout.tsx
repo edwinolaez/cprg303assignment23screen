@@ -33,6 +33,7 @@ export default function TabLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name='calls'
         options={{
@@ -48,6 +49,15 @@ export default function TabLayout() {
           title: 'Communities',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account-group-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen 
+        name="index"
+        options={{
+          title: 'Chats',
+          tabBarIcon: ({ color, size, focused }) => (
+            <MaterialCommunityIcons name={focused ? 'chat' : 'chat-outline'} color={color} size={focused ? 30 : 26} />
           ),
         }}
       />

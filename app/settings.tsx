@@ -1,9 +1,9 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 interface MenuItemProps {
-  iconName: string;
+  iconName: any;
   title: string;
   subtitle?: string;
   showChevron?: boolean;
@@ -12,7 +12,7 @@ interface MenuItemProps {
 const MenuItem: React.FC<MenuItemProps> = ({ iconName, title, subtitle, showChevron = true }) => (
     <TouchableOpacity style={styles.menuItem}>
       <View style={styles.menuIconContainer}>
-        <MaterialCommunityIcons icon={iconName} size={22} color="#000" />
+        <MaterialCommunityIcons name={iconName} size={22} color="#000" />
       </View>
       <View style={styles.menuTextContainer}>
         <Text style={styles.menuTitle}>{title}</Text>
@@ -62,9 +62,10 @@ export default function Settings(){
 
       <View style={styles.section}>
         <TouchableOpacity style={styles.profileItem}>
-          <View style={styles.avatar}>
+          {/* <View style={styles.avatar}>
             <MaterialCommunityIcons name="account" size={32} color="#666" />
-          </View>
+          </View> */}
+          <Image source={require('@/assets/images/edwin.jpg')} style={styles.avatar}/>
           <View style={styles.profileTextContainer}>
             <Text style={styles.profileName}>Edwin Olaez</Text>
             <Text style={styles.profileStatus}>Available</Text>
@@ -76,11 +77,16 @@ export default function Settings(){
       </View>
 
       <View style={styles.section}>
-        <MenuItem iconName="mdi:account-circle-outline" title="Avatar"/>
-        <MenuItem iconName="mdi:format-list-bulleted" title="Lists"/>
-        <MenuItem iconName="mdi:radio-tower" title="Broadcast messages"/>
-        <MenuItem iconName="mdi:star-outline" title="Starred"/>
-        <MenuItem iconName="mdi:laptop" title="Linked Devices"/>
+        <MenuItem iconName="account-circle-outline" title="Avatar"/>
+        <MenuItem iconName="format-list-bulleted" title="Lists"/>
+        <MenuItem iconName="radio-tower" title="Broadcast messages"/>
+        <MenuItem iconName="star-outline" title="Starred"/>
+        <MenuItem iconName="laptop" title="Linked Devices"/>
+      </View>
+
+      <View style={styles.section}>
+        <MenuItem iconName='key-outline' title='Account'/>
+        <MenuItem iconName='lock-outline' title='Privacy'/>
       </View>
 
       <View style={{ height: 20 }} />
